@@ -1,0 +1,15 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+GEMINI_API_KEY=os.getenv("GEMINI_API_KEY")
+
+GEMINI_MODEL="gemini-2.5-flash"
+
+def validar_configuracion()->None:
+    if not GEMINI_API_KEY or GEMINI_API_KEY == "GEMINI_API_KEY":
+        raise ValueError(
+            "configura una API Key valida en el archivo .env"
+            "usando GEMINI_API_KEY."
+        )
